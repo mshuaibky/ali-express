@@ -1,0 +1,78 @@
+<Header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white h1" href="#">ALI EXPRESS</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li class="nav-item ">
+            <a class="nav-link text-white h6" href="#">Home</a>
+          </li>
+           <li class="nav-item ">
+            <a class="nav-link text-white h6" href="#">Speakers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+          </li>
+        
+         
+        </ul>
+        <form class="d-flex">
+          {{#if login }}
+          <span style="color: white; margin-right:5px ;">{{this.date}}</span>
+          <a href="/logout" class="btn btn-outline-light h4">Logout</a>
+          {{else}}
+          <a href="/login" class="btn btn-outline-light h4">Login</a>
+          {{/if}}
+        </form>
+      </div>
+    </div>
+  </nav>
+</Header>
+   
+    <section>
+      <div class="container  mt-5 mt-5 mb-5 ">
+        <div class="row ">
+          {{#if login}}
+          {{#each products}}
+            <div class="col-6 col-md-6 col-lg-3  mt-4 mx-4 "  >
+              <div class="card bg-light p-2 text-center lh-sm" style="width: 18rem">
+                <img style="width:17em;height:auto;" src="{{this.Image}}" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">{{this.name}}</h5>
+                  <p class="card-text">{{this.price}}</p>
+                  <a href="#" class="btn btn-primary">ORDER NOW</a>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+          {{else}}
+         {{#each products}}
+            <div class="col-6 col-md-6 col-lg-3 mt-4 mx-4"   >
+              <div class="card bg-light p-2 text-center lh-sm" style="width: 18rem">
+                <img style="width:17em;height:auto;" src="{{this.Image}}" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">{{this.name}}</h5>
+                  <p class="card-text">{{this.price}}</p>
+                  <a href="#" class="btn btn-primary">login TO ORDER</a>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+          {{/if}}
+        </div>
+      </div>
+    </section>
