@@ -47,7 +47,7 @@ let user = req.session.user
     },
     
   ]
-  res.render('index',{products,login:user,date});
+  res.render('index',{products,login:user});
 });
 
 router.get('/login',(req,res)=>{
