@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
 let user = req.session.user
-
+let date=req.session.time
 
 
   let products=[
@@ -47,7 +47,7 @@ let user = req.session.user
     },
     
   ]
-  res.render('index',{products,login:user});
+  res.render('index',{products,login:user,date});
 });
 
 router.get('/login',(req,res)=>{
@@ -64,6 +64,7 @@ userLogin.doLogin(req.body).then((response)=>{
   if(response.status){
     req.session.loggedIn=true;
     req.session.user = response.user;
+    req.session.time=new Date();
    
     res.redirect('/');
   }else{
